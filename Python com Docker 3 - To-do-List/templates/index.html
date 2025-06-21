@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Minha Lista de Tarefas</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>📋 Lista de Tarefas</h2>
+    <form method="POST">
+      <input type="text" name="tarefa" placeholder="Digite uma nova tarefa..." required />
+      <button type="submit">Adicionar</button>
+    </form>
+    <ul>
+      {% for tarefa in tarefas %}
+      <li>
+        {{ tarefa }}
+        <a href="/delete/{{ loop.index0 }}" class="delete-btn">✖</a>
+      </li>
+      {% else %}
+      <li class="vazio">Nenhuma tarefa adicionada.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
